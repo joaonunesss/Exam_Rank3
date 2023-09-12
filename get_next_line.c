@@ -61,7 +61,7 @@ char	*get_line(char *temp)
 		return (NULL);
 	while (temp[i] && temp[i] != '\n')
 		i++;
-	line = malloc(sizeof(char) * (i + 2));
+	line = malloc(i + 2);
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -94,7 +94,7 @@ char	*clean_temp(char *temp)
 	clean = malloc(ft_strlen(temp) - i + 1);
 	if (!clean)
 		return (NULL);
-	i = i + 1;
+	i++;
 	while (temp[i])
 		clean[j++] = temp[i++];
 	clean[j] = '\0';
@@ -116,7 +116,7 @@ char	*get_next_line(int fd)
 	while (ft_strchr(temp) && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
-		if (bytes_read == -1)
+		if (bytes_read < 0)
 		{
 			free(buffer);
 			free(temp);
@@ -140,6 +140,9 @@ int main()
     int fd = 0;
 
     fd = open("text.txt", O_RDONLY);
-    printf("%s\n", get_next_line(fd));
+    printf("%s", get_next_line(fd));
+    printf("%s", get_next_line(fd));
+    printf("%s", get_next_line(fd));
+    printf("%s", get_next_line(fd));
     close(fd);
 }
