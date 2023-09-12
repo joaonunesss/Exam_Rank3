@@ -135,14 +135,14 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int main()
-{
-    int fd = 0;
+// int main()
+// {
+//     int fd = 0;
 
-    fd = open("text.txt", O_RDONLY);
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    printf("%s", get_next_line(fd));
-    close(fd);
-}
+//     fd = open("text.txt", O_RDONLY);
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     printf("%s", get_next_line(fd));
+//     close(fd);
+// }
